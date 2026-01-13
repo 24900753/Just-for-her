@@ -232,7 +232,13 @@ setInterval(()=>{
   setTimeout(()=>h.remove(),8000);
 },500);
 </script>
-
+<script>
+    if(localStorage.getItem("access")==="granted"){
+      window.location.replace("aval.html"); 
+    }else{
+      window.location.replace("secure.html");
+    }
+  </script>
 <script>
 /* MANUAL IMAGE ADD – SEPARATE SEPARATE */
 function addPhoto(group,x,y,r,img,date){
@@ -275,4 +281,5 @@ addPhoto("group3",420,360,-20,"images/imag8.jpeg","Oct 18");
 
 </body>
 </html>
+
 
