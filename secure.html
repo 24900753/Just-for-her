@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private Access 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(180deg,#fff1f6,#f6fbfa);
+  overflow:hidden;
+}
+
+/* CARD */
+.lock-card{
+  background:#fff;
+  padding:40px 30px;
+  width:320px;
+  text-align:center;
+  border-radius:18px;
+  box-shadow:0 25px 50px rgba(0,0,0,.15);
+  animation:fadeIn 1s ease;
+}
+
+/* TITLE */
+.lock-card h1{
+  font-family:'Playfair Display',serif;
+  color:#e08096;
+  font-size:28px;
+  margin-bottom:8px;
+}
+.lock-card p{
+  font-size:13px;
+  opacity:.7;
+  margin-bottom:30px;
+}
+
+/* INPUT */
+.lock-card input{
+  width:100%;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid #e08096;
+  font-size:16px;
+  text-align:center;
+  outline:none;
+}
+
+/* BUTTON */
+.lock-card button{
+  width:100%;
+  margin-top:18px;
+  padding:12px;
+  border:none;
+  border-radius:14px;
+  background:#e08096;
+  color:#fff;
+  font-size:14px;
+  cursor:pointer;
+  transition:.3s;
+}
+.lock-card button:hover{
+  opacity:.85;
+}
+
+/* ERROR */
+.error{
+  margin-top:12px;
+  color:#e63946;
+  font-size:13px;
+  display:none;
+}
+
+/* SUCCESS */
+.success{
+  margin-top:12px;
+  color:#2a9d8f;
+  font-size:13px;
+  display:none;
+}
+
+/* SHAKE */
+.shake{
+  animation:shake .4s;
+}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  25%{transform:translateX(-6px)}
+  75%{transform:translateX(6px)}
+}
+
+/* FADE */
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* HEARTS */
+.hearts span{
+  position:fixed;
+  bottom:-20px;
+  color:#f3a4b5;
+  animation:heartFloat linear infinite;
+  pointer-events:none;
+}
+@keyframes heartFloat{
+  0%{transform:translateY(0);opacity:0}
+  10%{opacity:1}
+  100%{transform:translateY(-100vh);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<div class="lock-card" id="card">
+  <h1>Private Access</h1>
+  <p>Enter your secret code 💖</p>
+
+  <input type="password" id="code" placeholder="•••••">
+  <button onclick="checkCode()">Enter</button>
+
+  <div class="error" id="error">Wrong code 💔</div>
+  <div class="success" id="success">Welcome 💕</div>
+</div>
+
+<div class="hearts"></div>
+
+<script>
+const SECRET = "18290";   // 🔐 YOUR SECRET CODE
+
+function checkCode(){
+  const input = document.getElementById("code").value;
+  const card = document.getElementById("card");
+  const error = document.getElementById("error");
+  const success = document.getElementById("success");
+
+  if(input === SECRET){
+    localStorage.setItem("unlock", "yes");  // ⭐ ONLY NEW LINE ⭐
+
+    error.style.display="none";
+    success.style.display="block";
+
+    setTimeout(()=>{
+      window.location.replace("index.html");  // safer redirect
+    },1200);
+
+  }else{
+    success.style.display="none";
+    error.style.display="block";
+
+    card.classList.remove("shake");
+    void card.offsetWidth;
+    card.classList.add("shake");
+  }
+}
+
+/* FLOATING HEARTS (UNCHANGED) */
+const hc=document.querySelector('.hearts');
+setInterval(()=>{
+  const h=document.createElement("span");
+  h.innerHTML=["♥︎","♡","❀"][Math.floor(Math.random()*3)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(4+Math.random()*4)+"s";
+  hc.appendChild(h);
+  setTimeout(()=>h.remove(),8000);
+},500);
+</script>
+
+
+</body>
+</html>

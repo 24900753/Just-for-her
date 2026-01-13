@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aval 🌸</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(180deg,#fff1f6,#f6fbfa);
+  min-height:100vh;
+}
+
+/* BACK */
+.back-home{
+  position:fixed;
+  top:20px;
+  left:20px;
+  text-decoration:none;
+  font-size:14px;
+  color:#e08096;
+  padding:6px 12px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(6px);
+  z-index:200;
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  padding:60px 20px 30px;
+}
+header h1{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  color:#e08096;
+}
+.aval-icon{opacity:.6}
+
+/* BOOK */
+.book-wrap{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:calc(100vh - 180px);
+}
+.book{
+  width:560px;
+  height:460px;
+  background:#fff;
+  border-radius:6px;
+  position:relative;
+  box-shadow:0 30px 60px rgba(0,0,0,.15);
+  overflow:hidden;
+}
+.book::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  width:18px;
+  height:100%;
+  background:linear-gradient(180deg,#f3c2cf,#e7a9b8);
+}
+.page{
+  padding:50px 30px 40px 50px;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  overflow-y:auto;        /* ⭐ SCROLL ENABLE */
+  scrollbar-width:thin;  /* Firefox (soft) */
+}
+
+.page h2{
+  font-family:'Dancing Script',cursive;
+  font-size:26px;
+  color:#e08096;
+}
+.page p{
+  font-family:'Dancing Script',cursive;
+  font-size:20px;
+  color:#555;
+}
+
+/* SKETCH SECTION */
+.sketch-section{
+  display:flex;
+  justify-content:center;
+  margin:40px 0;
+}
+.sketch-container{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+/* TOOLS */
+.tools{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.color{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  cursor:pointer;
+  border:2px solid #fff;
+  box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+.range{
+  transform:rotate(-90deg);
+  margin-top:18px;
+}
+
+/* IMAGE FRAME */
+.image-frame{
+  position:relative;
+  width:420px;
+  height:420px;
+  border-radius:22px;
+  overflow:hidden;
+  background:#fff;
+  animation:glow 3s ease-in-out infinite;
+}
+@keyframes glow{
+  0%{box-shadow:0 20px 45px rgba(255, 95, 132, 0.35)}
+  50%{box-shadow:0 28px 60px rgba(236, 169, 182, 0.55)}
+  100%{box-shadow:0 20px 45px rgba(255, 158, 181, 0.35)}
+}
+.image-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+canvas{
+  position:absolute;
+  inset:0;
+  touch-action:none; /* ⭐ IMPORTANT FOR MOBILE */
+}
+
+/* ACTIONS */
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-top:12px;
+}
+.actions button{
+  border:none;
+  padding:6px 18px;
+  border-radius:16px;
+  font-size:12px;
+  background:#e08096;
+  color:#fff;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  padding:12px;
+  font-size:12px;
+  color:#e08096;
+}
+
+/* MOBILE FIX (UNCHANGED FROM YOU) */
+@media(max-width:600px){
+  header h1{font-size:32px;}
+  .book-wrap{height:auto;padding:20px 0;}
+  .book{width:90%;height:auto;}
+  .page{padding:30px 20px;}
+  .page p{font-size:18px;}
+  .sketch-container{flex-direction:column;}
+  .tools{flex-direction:row;justify-content:center;margin-bottom:10px;}
+  .range{transform:rotate(0);width:120px;margin-top:0;}
+  .image-frame{width:300px;height:300px;}
+  canvas{width:300px;height:300px;}
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back-home">← Home</a>
+
+<header>
+  <h1>꩜ Aval</h1>
+  <div class="aval-icon">────୨ৎ────</div>
+</header>
+
+<div class="book-wrap">
+  <div class="book">
+    <div class="page">
+      <h2>Discover my memories…</h2>
+      <p>I loved her.</p>
+      <p>They said, “Can you really believe that girl loved silly you?”
+But that was the truth.</p>
+      <p>The reality is, I didn’t give her much happiness.
+I don’t think I have ever truly made anyone happy in my life.
+At most, maybe I gave her a few small happy moments.</p>
+      <p>i used to get angry a lot—
+over small things, silly problems, unnecessary misunderstandings.
+i would fight often.
+But without overthinking any of that, she stayed with me.</p>
+<p>Sometimes I just wanna ask,Are you really happy with me.</p>
+      <p>There was only one thing she ever expected from me:
+I wanted to understand what she was feeling without her having to explain everything.
+If i told me things simply,  understand</p>
+      <p>But even now, I could do properly for every time also.that understanding😅.</p>
+      <p>All I know is this:
+I love her without fully understanding what love means.</p>
+      <p>
+She was a very good person.
+She did everything for me without me even asking.
+Whenever I felt lonely or hurt inside, she was there with me.</p>
+<p>
+I really loved her eyes.
+I told her that too.</p>
+<p>And if there is one thing I want to say to her now—
+it is sorry.</p>
+<p>
+  I have said sorry many times.
+I keep saying it, not because I am afraid,
+but because I truly mean it.
+</p>
+<p>But this time, I understood.
+I realized that you never made yourself feel guilty.
+Not all girls are like you.🌷</p>
+<p>I’ve told her this many times… and I’m saying it again.”</p>
+<p>Don’t be afraid of anything.
+Whatever happens, you’re strong enough to face it.
+
+Stay happy.
+Talk to everyone and enjoy your life.
+
+If someone says something hurtful, don’t let it stay in your heart.
+People will talk—let them.
+
+Just be yourself,
+the way you want to be.</p>
+<p>Stay with that smile.😁</p>
+    </div>
+  </div>
+</div>
+
+<div class="sketch-section">
+  <div class="sketch-container">
+
+    <div class="tools">
+  <!-- Red -->
+  <div class="color" style="background:#ff0000" onclick="setColor('#ff0000')"></div>
+
+  <!-- Black -->
+  <div class="color" style="background:#000000" onclick="setColor('#000000')"></div>
+
+  <!-- White -->
+  <div class="color" style="background:#ffffff" onclick="setColor('#ffffff')"></div>
+
+  <!-- Yellow -->
+  <div class="color" style="background:#ffd700" onclick="setColor('#ffd700')"></div>
+
+  <!-- Orange -->
+  <div class="color" style="background:#ff7a00" onclick="setColor('#ff7a00')"></div>
+
+  <!-- Purple -->
+  <div class="color" style="background:#7b2cbf" onclick="setColor('#7b2cbf')"></div>
+
+  <!-- Blue -->
+  <div class="color" style="background:#0077ff" onclick="setColor('#0077ff')"></div>
+
+  <!-- Maroon -->
+  <div class="color" style="background:#800000" onclick="setColor('#800000')"></div>
+
+  <!-- Green -->
+  <div class="color" style="background:#0a8f08" onclick="setColor('#0a8f08')"></div>
+
+  <!-- Brush size -->
+  <input type="range" min="1" max="8" value="3" class="range" onchange="setWidth(this.value)">
+</div>
+
+
+    <div>
+      <div class="image-frame">
+        <img src="images/imag30.jpeg">
+        <canvas id="canvas"></canvas>
+      </div>
+      <div class="actions">
+        <button onclick="saveSketch()">Save</button>
+        <button onclick="clearSketch()">Remove</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  Made with ❤️ by <span>Road La Porava</span>
+</footer>
+
+<script>
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+
+canvas.width=420;
+canvas.height=420;
+
+let drawing=false;
+let color="#e08096";
+let width=3;
+
+function setColor(c){color=c}
+function setWidth(w){width=w}
+
+/* DESKTOP */
+canvas.addEventListener("mousedown",()=>drawing=true);
+canvas.addEventListener("mouseup",()=>drawing=false);
+canvas.addEventListener("mouseleave",()=>drawing=false);
+
+canvas.addEventListener("mousemove",e=>{
+  if(!drawing) return;
+  const r=canvas.getBoundingClientRect();
+  ctx.fillStyle=color;
+  ctx.beginPath();
+  ctx.arc(e.clientX-r.left,e.clientY-r.top,width,0,Math.PI*2);
+  ctx.fill();
+});
+
+/* 📱 MOBILE TOUCH SUPPORT */
+canvas.addEventListener("touchstart",e=>{
+  e.preventDefault();
+  drawing=true;
+});
+canvas.addEventListener("touchend",e=>{
+  e.preventDefault();
+  drawing=false;
+});
+canvas.addEventListener("touchmove",e=>{
+  e.preventDefault();
+  if(!drawing) return;
+  const t=e.touches[0];
+  const r=canvas.getBoundingClientRect();
+  ctx.fillStyle=color;
+  ctx.beginPath();
+  ctx.arc(t.clientX-r.left,t.clientY-r.top,width,0,Math.PI*2);
+  ctx.fill();
+});
+
+/* SAVE / CLEAR */
+function saveSketch(){
+  localStorage.setItem("avalSketch",canvas.toDataURL());
+  alert("Sketch saved 💖");
+}
+function clearSketch(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  localStorage.removeItem("avalSketch");
+}
+
+/* LOAD */
+const saved=localStorage.getItem("avalSketch");
+if(saved){
+  const img=new Image();
+  img.onload=()=>ctx.drawImage(img,0,0);
+  img.src=saved;
+}
+</script>
+
+</body>
+</html>
