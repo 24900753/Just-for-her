@@ -178,6 +178,12 @@ footer span{font-weight:600}
 </head>
 
 <body>
+<script>
+if(localStorage.getItem("unlock") !== "yes") {
+  window.location.replace("secure.html");
+}
+</script>
+
 
 <div class="hearts"></div>
 
@@ -233,14 +239,6 @@ setInterval(()=>{
 },500);
 </script>
 <script>
-if(localStorage.getItem("unlock")==="yes"){
-  window.location.replace("aval.html");
-}else{
-  window.location.replace("secure.html");
-}
-</script>
-
-<script>
 /* MANUAL IMAGE ADD – SEPARATE SEPARATE */
 function addPhoto(group,x,y,r,img,date){
   const box=document.getElementById(group);
@@ -282,6 +280,7 @@ addPhoto("group3",420,360,-20,"images/imag8.jpeg","Oct 18");
 
 </body>
 </html>
+
 
 
 
